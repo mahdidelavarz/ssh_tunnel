@@ -1,0 +1,9 @@
+# Germany Server Status
+
+## GOST Process
+root        7193  0.0  1.2 1271624 49720 ?       Sl   11:35   0:00 /usr/local/bin/gost -L tls://:443
+root        7290  0.0  0.0   6876  2980 ?        Ss   12:00   0:00 bash -c echo "# Germany Server Status" > /tmp/status.txt && echo "" >> /tmp/status.txt && echo "## GOST Process" >> /tmp/status.txt && ps aux | grep gost >> /tmp/status.txt && echo "" >> /tmp/status.txt && echo "## Port 443 Listening" >> /tmp/status.txt && netstat -tlnp | grep 443 >> /tmp/status.txt && cat /tmp/status.txt
+root        7292  0.0  0.0   6416  1984 ?        S    12:00   0:00 grep gost
+
+## Port 443 Listening
+tcp6       0      0 :::443                  :::*                    LISTEN      7193/gost           
