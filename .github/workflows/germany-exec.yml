@@ -27,10 +27,8 @@ jobs:
           echo "" >> status.md
           echo "## Command: ${{ github.event.inputs.command }}" >> status.md
           echo '```' >> status.md
-          sshpass -p "hTuRdTssfTTu" ssh -o StrictHostKeyChecking=no root@178.105.61.169 "${{ github.event.inputs.command }}" >> status.md 2>&1
+          sshpass -p "hTuRdTssfTTu" ssh -o StrictHostKeyChecking=no root@178.105.61.169 "${{ github.event.inputs.command }}" >> status.md 2>&1 || echo "(No output or command failed)" >> status.md
           echo '```' >> status.md
-          echo "" >> status.md
-          echo "✅ Command executed successfully" >> status.md
 
       - name: Commit and push result
         run: |
