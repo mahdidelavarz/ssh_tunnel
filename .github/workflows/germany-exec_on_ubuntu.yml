@@ -1,4 +1,4 @@
-name: Execute on Germany Server
+name: Execute on Germany UbuntuServer
 
 on:
   workflow_dispatch:
