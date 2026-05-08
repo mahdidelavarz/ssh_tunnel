@@ -16,7 +16,7 @@ jobs:
       - name: SSH debug connection
         run: |
           echo "Testing connection to ${{ secrets.GERMAN_IP }}:${{ secrets.GERMAN_PORT }}"
-          sshpass -p "${{ secrets.GERMAN_PASSWORD }}" \
+          sshpass -p "${{ secrets.GERMAN_PASS }}" \
           ssh -vvv \
             -o StrictHostKeyChecking=no \
             -o PreferredAuthentications=password \
