@@ -15,13 +15,13 @@ jobs:
 
       - name: SSH debug connection
         run: |
-          echo "Testing connection to ${{ secrets.GERMANY_IP }}:${{ secrets.GERMANY_PORT }}"
-          sshpass -p "${{ secrets.GERMANY_PASSWORD }}" \
+          echo "Testing connection to ${{ secrets.GERMAN_IP }}:${{ secrets.GERMAN_PORT }}"
+          sshpass -p "${{ secrets.GERMAN_PASSWORD }}" \
           ssh -vvv \
             -o StrictHostKeyChecking=no \
             -o PreferredAuthentications=password \
             -o PubkeyAuthentication=no \
             -o ConnectTimeout=15 \
-            -p ${{ secrets.GERMANY_PORT }} \
-            ${{ secrets.GERMANY_USER }}@${{ secrets.GERMANY_IP }} \
+            -p ${{ secrets.GERMAN_PORT }} \
+            ${{ secrets.GERMAN_USER }}@${{ secrets.GERMAN_IP }} \
             "echo OK"
