@@ -1,6 +1,6 @@
-# Germany Server - Fri May  8 17:16:37 UTC 2026
+# Germany Server - Fri May  8 17:18:16 UTC 2026
 
-## Command: sysctl net.ipv4.ip_nonlocal_bind
+## Command: sysctl -w net.ipv4.ip_nonlocal_bind=1
 ```
 OpenSSH_9.6p1 Ubuntu-3ubuntu13.15, OpenSSL 3.0.13 30 Jan 2024
 debug1: Reading configuration data /etc/ssh/ssh_config
@@ -80,14 +80,14 @@ debug1: pledge: network
 debug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0
 debug1: Sending environment.
 debug1: channel 0: setting env LANG = "C.UTF-8"
-debug1: Sending command: sysctl net.ipv4.ip_nonlocal_bind
+debug1: Sending command: sysctl -w net.ipv4.ip_nonlocal_bind=1
 debug1: pledge: fork
 debug1: client_input_channel_req: channel 0 rtype exit-status reply 0
 debug1: client_input_channel_req: channel 0 rtype eow@openssh.com reply 0
-net.ipv4.ip_nonlocal_bind = 0
+net.ipv4.ip_nonlocal_bind = 1
 debug1: channel 0: free: client-session, nchannels 1
-Transferred: sent 3232, received 3580 bytes, in 0.8 seconds
-Bytes per second: sent 4127.6, received 4572.1
+Transferred: sent 3240, received 3580 bytes, in 0.9 seconds
+Bytes per second: sent 3645.8, received 4028.4
 debug1: Exit status 0
 ```
 
