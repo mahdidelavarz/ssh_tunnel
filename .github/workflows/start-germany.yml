@@ -1,0 +1,21 @@
+name: Start Germany Server
+
+on:
+  workflow_dispatch:
+
+jobs:
+  start:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Start GOST server on Germany
+        uses: appleboy/ssh-action@v1
+        with:
+          host: 178.105.61.169
+          username: root
+          password: "hTuRdTssfTTu"
+          port: 22
+          script: |
+            pkill gost || true
+            nohup /usr/local/bin/gost -L "tls://:443" > /root/gost.log 2>&1 &
+            sleep 2
+            ps aux | grep gost
