@@ -1,5 +1,4 @@
-yaml
-name: SSH Test (Password Auth)
+name: SSH Test (Debian 12 - Password)
 
 on:
   workflow_dispatch:
@@ -10,12 +9,18 @@ jobs:
 
     steps:
       - name: Install sshpass
-        run: sudo apt-get update && sudo apt-get install -y sshpass
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y sshpass
 
-      - name: SSH and run test command
+      - name: Test SSH Connection to Debian 12
         run: |
           sshpass -p "${{ secrets.GERMANY_PASSWORD }}" \
-          ssh -o StrictHostKeyChecking=no \
-              -p ${{ secrets.GERMANY_PORT }} \
-              ${{ secrets.GERMANY_USER }}@${{ secrets.GERMANY_IP }} \
-              "whoami && hostname && uptime"
+          ssh \
+            -o StrictHostKeyChecking=no \
+            -o PreferredAuthentications=password \
+            -o PubkeyAuthentication=no \
+            -o ConnectTimeout=15 \
+            -p ${{ secrets.GERMANY_PORT }} \
+            ${{ secrets.GERMANY_USER }}@${{ secrets.GERMANY_IP }} \
+            "echo 'CONNECTED SUCCESSFULLY'; whoami; hostnamectl; uptime"
