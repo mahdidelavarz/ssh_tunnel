@@ -1,6 +1,6 @@
-# Germany Server - Fri May  8 16:38:33 UTC 2026
+# Germany Server - Fri May  8 16:40:56 UTC 2026
 
-## Command: ss -tlnp | grep :443
+## Command: kill -9 3106
 ```
 OpenSSH_9.6p1 Ubuntu-3ubuntu13.15, OpenSSL 3.0.13 30 Jan 2024
 debug1: Reading configuration data /etc/ssh/ssh_config
@@ -80,14 +80,13 @@ debug1: pledge: network
 debug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0
 debug1: Sending environment.
 debug1: channel 0: setting env LANG = "C.UTF-8"
-debug1: Sending command: ss -tlnp | grep :443
+debug1: Sending command: kill -9 3106
 debug1: pledge: fork
-LISTEN 0      4096               *:443             *:*    users:(("gost",pid=3106,fd=3))           
 debug1: client_input_channel_req: channel 0 rtype exit-status reply 0
 debug1: client_input_channel_req: channel 0 rtype eow@openssh.com reply 0
 debug1: channel 0: free: client-session, nchannels 1
-Transferred: sent 3224, received 3652 bytes, in 0.8 seconds
-Bytes per second: sent 3938.2, received 4461.0
+Transferred: sent 3216, received 3528 bytes, in 1.0 seconds
+Bytes per second: sent 3370.7, received 3697.7
 debug1: Exit status 0
 ```
 
