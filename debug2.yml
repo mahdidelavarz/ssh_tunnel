@@ -1,0 +1,13 @@
+name: Debug2
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Manual SSH test
+        run: |
+          echo "Testing connection to ${{ secrets.GERMAN_IP }}"
+          nc -zv ${{ secrets.GERMAN_IP }} 22
