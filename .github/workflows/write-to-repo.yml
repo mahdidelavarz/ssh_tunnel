@@ -1,0 +1,21 @@
+name: result on repo
+
+on:
+  workflow_dispatch:
+
+jobs:
+  simple:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install sshpass
+        run: sudo apt-get install -y sshpass
+
+      - name: Create status on Germany and copy
+        run: |
+          sshpass -p "hTuRdTssfTTu" ssh -o StrictHostKeyChecking=no root@178.105.61.169 "ps aux | grep gost; netstat -tlnp | grep 443" > result.txt
+          
+      - name: Upload result
+        uses: actions/upload-artifact@v4
+        with:
+          name: result
+          path: result.txt
