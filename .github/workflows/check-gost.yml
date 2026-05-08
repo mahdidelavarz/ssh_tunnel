@@ -1,13 +1,13 @@
-name: Check GOST
+name: Save GOST Version
 
 on:
   workflow_dispatch:
 
 jobs:
-  check:
+  save:
     runs-on: ubuntu-latest
     steps:
-      - name: Check GOST version on Germany server
+      - name: Get GOST version and save locally
         uses: appleboy/ssh-action@v1
         with:
           host: 178.105.61.169
