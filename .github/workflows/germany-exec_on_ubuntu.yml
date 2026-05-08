@@ -1,4 +1,4 @@
-name: Execute on Germany UbuntuServer
+name: Execute on Germany Ubuntu Server
 
 on:
   workflow_dispatch:
@@ -27,8 +27,10 @@ jobs:
           echo "" >> status.md
           echo "## Command: ${{ github.event.inputs.command }}" >> status.md
           echo '```' >> status.md
-          sshpass -p "${{ secrets.GERMAN_PASS }}" ssh -o StrictHostKeyChecking=no root@46.225.109.36 "${{ github.event.inputs.command }}" >> status.md 2>&1 || echo "(No output or command failed)" >> status.md
+          sshpass -p "${{ secrets.GERMAN_PASS }}" ssh -v -o StrictHostKeyChecking=no root@46.225.109.36 "${{ github.event.inputs.command }}" >> status.md 2>&1
           echo '```' >> status.md
+          echo "" >> status.md
+          echo "## Exit Code: $?" >> status.md
 
       - name: Commit and push result
         run: |
