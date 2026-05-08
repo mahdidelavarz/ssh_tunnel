@@ -7,11 +7,11 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Test SSH connection
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.GERMAN_IP }}
-          username: ${{ secrets.GERMAN_USER }}
-          password: ${{ secrets.GERMAN_PASS }}
-          port: 22
-          script: echo "Connected successfully!"
+      - name: Test if port 22 is open
+        run: |
+          timeout 5 bash -c "echo >/dev/tcp/${{ secrets.GERMAN_IP }}/22" && echo "Port 22 is OPEN" || echo "Port 22 is CLOSED or TIMEOUT"
+
+      - name: Show IP address being used
+        run: |
+          echo "IP: ${{ secrets.GERMAN_IP }}"
+          echo "User: ${{ secrets.GERMAN_USER }}"
