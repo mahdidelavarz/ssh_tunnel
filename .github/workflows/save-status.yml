@@ -1,0 +1,28 @@
+name: Save Germany Status
+
+on:
+  workflow_dispatch:
+
+jobs:
+  save:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get status from Germany
+        uses: appleboy/ssh-action@v1
+        with:
+          host: 178.105.61.169
+          username: root
+          password: "*******"
+          port: 22
+          script: |
+            echo "=== GOST PROCESS ===" > /root/status.txt
+            ps aux | grep gost >> /root/status.txt
+            echo "=== PORT 443 ===" >> /root/status.txt
+            netstat -tlnp | grep 443 >> /root/status.txt
+            cat /root/status.txt
+      
+      - name: Upload status
+        uses: actions/upload-artifact@v4
+        with:
+          name: germany-status
+          path: /root/status.txt
