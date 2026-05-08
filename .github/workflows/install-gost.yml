@@ -1,4 +1,4 @@
-name: Debug SSH Connection
+name: Debug
 
 on:
   workflow_dispatch:
@@ -7,7 +7,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Run basic commands on Germany server
+      - name: Run commands
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.GERMAN_IP }}
@@ -15,14 +15,5 @@ jobs:
           password: ${{ secrets.GERMAN_PASS }}
           port: 22
           script: |
-            echo "=== 1. Check if connected ==="
+            echo "hello"
             whoami
-            pwd
-            echo "=== 2. Check OS version ==="
-            cat /etc/os-release | head -3
-            echo "=== 3. Check PATH ==="
-            echo $PATH
-            echo "=== 4. Check if wget exists ==="
-            which wget || echo "wget not found"
-            echo "=== 5. Check if curl exists ==="
-            which curl || echo "curl not found"
