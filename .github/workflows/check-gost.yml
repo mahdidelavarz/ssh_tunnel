@@ -12,7 +12,7 @@ jobs:
         with:
           host: 178.105.61.169
           username: root
-          password: "*******"
+          password: "hTuRdTssfTTu"
           port: 22
           script: |
             /usr/local/bin/gost -V
