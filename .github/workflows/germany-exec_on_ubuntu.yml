@@ -1,0 +1,39 @@
+name: Execute on Germany Server
+
+on:
+  workflow_dispatch:
+    inputs:
+      command:
+        description: 'Command to run on Germany server'
+        required: true
+        default: 'gost -V'
+        type: string
+
+jobs:
+  execute:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Install sshpass
+        run: sudo apt-get update && sudo apt-get install -y sshpass
+
+      - name: Run command on Germany server
+        run: |
+          echo "# Germany Server - $(date)" > status.md
+          echo "" >> status.md
+          echo "## Command: ${{ github.event.inputs.command }}" >> status.md
+          echo '```' >> status.md
+          sshpass -p "${{ secrets.GERMAN_PASS }}" ssh -o StrictHostKeyChecking=no root@46.225.109.36 "${{ github.event.inputs.command }}" >> status.md 2>&1 || echo "(No output or command failed)" >> status.md
+          echo '```' >> status.md
+
+      - name: Commit and push result
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add status.md
+          git commit -m "Execute: ${{ github.event.inputs.command }}" || echo "No changes"
+          git push
