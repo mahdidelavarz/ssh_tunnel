@@ -1,6 +1,6 @@
-# Germany Server - Fri May  8 16:58:30 UTC 2026
+# Germany Server - Fri May  8 16:59:14 UTC 2026
 
-## Command: /usr/local/bin/gost -L ws://:443 > /root/gost.log 2>&1 &
+## Command: ps aux | grep gost | grep -v grep
 ```
 OpenSSH_9.6p1 Ubuntu-3ubuntu13.15, OpenSSL 3.0.13 30 Jan 2024
 debug1: Reading configuration data /etc/ssh/ssh_config
@@ -80,13 +80,14 @@ debug1: pledge: network
 debug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0
 debug1: Sending environment.
 debug1: channel 0: setting env LANG = "C.UTF-8"
-debug1: Sending command: /usr/local/bin/gost -L ws://:443 > /root/gost.log 2>&1 &
+debug1: Sending command: ps aux | grep gost | grep -v grep
 debug1: pledge: fork
+root        3906  2.5  1.1 1271048 45868 ?       Sl   16:58   0:01 /usr/local/bin/gost -L ws://:443
 debug1: client_input_channel_req: channel 0 rtype exit-status reply 0
 debug1: client_input_channel_req: channel 0 rtype eow@openssh.com reply 0
 debug1: channel 0: free: client-session, nchannels 1
-Transferred: sent 3256, received 3528 bytes, in 1.2 seconds
-Bytes per second: sent 2616.8, received 2835.4
+Transferred: sent 3232, received 3652 bytes, in 0.4 seconds
+Bytes per second: sent 8249.3, received 9321.3
 debug1: Exit status 0
 ```
 
