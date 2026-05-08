@@ -1,0 +1,17 @@
+name: Show Key Simple
+
+on:
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate and display SSH key
+        run: |
+          ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -N ""
+          echo "========== PUBLIC KEY =========="
+          cat ~/.ssh/id_rsa.pub
+          echo "========== PRIVATE KEY =========="
+          cat ~/.ssh/id_rsa
+          echo "================================="
