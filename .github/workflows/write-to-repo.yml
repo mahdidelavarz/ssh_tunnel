@@ -1,21 +1,28 @@
-name: result on repo
+name: Write Status to Repo
 
 on:
   workflow_dispatch:
 
 jobs:
-  simple:
+  write:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-      - name: Install sshpass
-        run: sudo apt-get install -y sshpass
+      - name: Checkout repo
+        uses: actions/checkout@v4
 
-      - name: Create status on Germany and copy
+      - name: Install sshpass
+        run: sudo apt-get update && sudo apt-get install -y sshpass
+
+      - name: Get status from Germany server and save locally
         run: |
-          sshpass -p "hTuRdTssfTTu" ssh -o StrictHostKeyChecking=no root@178.105.61.169 "ps aux | grep gost; netstat -tlnp | grep 443" > result.txt
-          
-      - name: Upload result
-        uses: actions/upload-artifact@v4
-        with:
-          name: result
-          path: result.txt
+          sshpass -p "hTuRdTssfTTu" ssh -o StrictHostKeyChecking=no root@178.105.61.169 'echo "# Germany Server Status" > /tmp/status.txt && echo "" >> /tmp/status.txt && echo "## GOST Process" >> /tmp/status.txt && ps aux | grep gost >> /tmp/status.txt && echo "" >> /tmp/status.txt && echo "## Port 443 Listening" >> /tmp/status.txt && netstat -tlnp | grep 443 >> /tmp/status.txt && cat /tmp/status.txt' > status.txt
+
+      - name: Commit and push to repository
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add status.txt
+          git commit -m "Update Germany server status" || echo "No changes to commit"
+          git push
