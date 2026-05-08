@@ -1,0 +1,20 @@
+name: Test Final
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: SSH Test
+        uses: appleboy/ssh-action@v1
+        with:
+          host: 178.105.61.169
+          username: root
+          password: "*******"
+          port: 22
+          script: |
+            echo "Connected!"
+            whoami
+            pwd
