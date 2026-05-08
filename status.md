@@ -1,6 +1,6 @@
-# Germany Server - Fri May  8 16:37:10 UTC 2026
+# Germany Server - Fri May  8 16:38:33 UTC 2026
 
-## Command: timeout 3 /usr/local/bin/gost -L obfs4://:443?autocert=true 2>&1 || true
+## Command: ss -tlnp | grep :443
 ```
 OpenSSH_9.6p1 Ubuntu-3ubuntu13.15, OpenSSL 3.0.13 30 Jan 2024
 debug1: Reading configuration data /etc/ssh/ssh_config
@@ -80,14 +80,14 @@ debug1: pledge: network
 debug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0
 debug1: Sending environment.
 debug1: channel 0: setting env LANG = "C.UTF-8"
-debug1: Sending command: timeout 3 /usr/local/bin/gost -L obfs4://:443?autocert=true 2>&1 || true
+debug1: Sending command: ss -tlnp | grep :443
 debug1: pledge: fork
-{"handler":"auto","kind":"listener","level":"error","listener":"tcp","msg":"init: listen tcp :443: bind: address already in use","service":"service-0","time":"2026-05-08T16:37:14.066Z"}
-{"level":"fatal","msg":"listen tcp :443: bind: address already in use","time":"2026-05-08T16:37:14.066Z"}
+LISTEN 0      4096               *:443             *:*    users:(("gost",pid=3106,fd=3))           
 debug1: client_input_channel_req: channel 0 rtype exit-status reply 0
+debug1: client_input_channel_req: channel 0 rtype eow@openssh.com reply 0
 debug1: channel 0: free: client-session, nchannels 1
-Transferred: sent 3272, received 3820 bytes, in 2.0 seconds
-Bytes per second: sent 1630.7, received 1903.8
+Transferred: sent 3224, received 3652 bytes, in 0.8 seconds
+Bytes per second: sent 3938.2, received 4461.0
 debug1: Exit status 0
 ```
 
