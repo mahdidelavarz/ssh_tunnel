@@ -1,0 +1,19 @@
+name: Debug3
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test SSH with password
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.GERMAN_IP }}
+          username: ${{ secrets.GERMAN_USER }}
+          password: ${{ secrets.GERMAN_PASS }}
+          port: 22
+          script: echo "works"
+          command_timeout: 10s
+          fingerprint: ""
