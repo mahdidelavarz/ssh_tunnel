@@ -1,35 +1,21 @@
-name: Install GOST on Germany Server
+yaml
+name: SSH Test (Password Auth)
 
 on:
   workflow_dispatch:
-    inputs:
-      commands:
-        description: 'دستورات مورد نظر (با خط جدید جدا کنید)'
-        required: true
-        default: |
-          apt update
-          apt install -y wget curl
-          cd /root
-          wget https://github.com/go-gost/gost/releases/download/v3.2.5/gost_3.2.5_linux_amd64.tar.gz
-          tar -xzf gost_3.2.5_linux_amd64.tar.gz
-          chmod +x gost
-          mv gost /usr/local/bin/
-          gost -V
 
 jobs:
-  install:
+  ssh-test:
     runs-on: ubuntu-latest
+
     steps:
-      - name: اتصال به سرور آلمان و اجرای دستورات
-        uses: appleboy/ssh-action@v1
-        with:
-          host: ${{ secrets.GERMAN_IP }}
-          username: ${{ secrets.GERMAN_USER }}
-          password: ${{ secrets.GERMAN_PASS }}
-          port: 22
-          script: |
-            echo "✅ متصل شدم به سرور آلمان"
-            echo "------------------------"
-            ${{ github.event.inputs.commands }}
-            echo "------------------------"
-            echo "✅ اجرای دستورات تمام شد"
+      - name: Install sshpass
+        run: sudo apt-get update && sudo apt-get install -y sshpass
+
+      - name: SSH and run test command
+        run: |
+          sshpass -p "${{ secrets.GERMANY_PASSWORD }}" \
+          ssh -o StrictHostKeyChecking=no \
+              -p ${{ secrets.GERMANY_PORT }} \
+              ${{ secrets.GERMANY_USER }}@${{ secrets.GERMANY_IP }} \
+              "whoami && hostname && uptime"
