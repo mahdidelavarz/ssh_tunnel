@@ -1,27 +1,17 @@
-name: SSH Debug Test (Debian 12)
+name: Test SSH Connection
 
 on:
   workflow_dispatch:
 
 jobs:
-  ssh-debug:
+  test:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Install sshpass
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y sshpass
-
-      - name: SSH debug connection
-        run: |
-          echo "Testing connection to ${{ secrets.GERMAN_IP }}:${{ secrets.GERMAN_PORT }}"
-          sshpass -p "${{ secrets.GERMAN_PASS }}" \
-          ssh -vvv \
-            -o StrictHostKeyChecking=no \
-            -o PreferredAuthentications=password \
-            -o PubkeyAuthentication=no \
-            -o ConnectTimeout=15 \
-            -p ${{ secrets.GERMAN_PORT }} \
-            ${{ secrets.GERMAN_USER }}@${{ secrets.GERMAN_IP }} \
-            "echo OK"
+      - name: Test SSH connection
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.GERMAN_IP }}
+          username: ${{ secrets.GERMAN_USER }}
+          password: ${{ secrets.GERMAN_PASS }}
+          port: 22
+          script: echo "Connected successfully!"
