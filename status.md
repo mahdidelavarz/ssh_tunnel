@@ -1,6 +1,6 @@
-# Germany Server - Sat May  9 10:39:21 UTC 2026
+# Germany Server - Sat May  9 12:39:26 UTC 2026
 
-## Command: sudo /root/spoof-tunnel/spoof tester --mode receiver --protocol tcp --src-list /root/iran-spoof-test.txt --timeout 30 --dst-port 80
+## Command: curl -L -o mhrv https://github.com/therealaleph/MasterHttpRelayVPN-RUST/releases/latest/download/mhrv-linux-x86_64
 ```
 OpenSSH_9.6p1 Ubuntu-3ubuntu13.15, OpenSSL 3.0.13 30 Jan 2024
 debug1: Reading configuration data /etc/ssh/ssh_config
@@ -80,17 +80,16 @@ debug1: pledge: network
 debug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0
 debug1: Sending environment.
 debug1: channel 0: setting env LANG = "C.UTF-8"
-debug1: Sending command: sudo /root/spoof-tunnel/spoof tester --mode receiver --protocol tcp --src-list /root/iran-spoof-test.txt --timeout 30 --dst-port 80
+debug1: Sending command: curl -L -o mhrv https://github.com/therealaleph/MasterHttpRelayVPN-RUST/releases/latest/download/mhrv-linux-x86_64
 debug1: pledge: fork
-2026/05/09 10:39:23 [tester] loaded 1792 source IPs from /root/iran-spoof-test.txt
-2026/05/09 10:39:23 [tester] mode=receiver protocol=tcp packet_count=10 max_loss=20.0%
-2026/05/09 10:39:23 [tester-receiver] protocol=tcp sources=1792 packet_count=10 max_loss=20.0% timeout=30s
-2026/05/09 10:39:53 [tester-receiver] done -- 0/1792 IPs passed (loss <= 20.0%)
-2026/05/09 10:39:53 [tester] 0/1792 IPs passed
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100     9  100     9    0     0     20      0 --:--:-- --:--:-- --:--:--    20
 debug1: client_input_channel_req: channel 0 rtype exit-status reply 0
 debug1: channel 0: free: client-session, nchannels 1
-Transferred: sent 3336, received 4004 bytes, in 31.5 seconds
-Bytes per second: sent 105.8, received 126.9
+Transferred: sent 3320, received 6956 bytes, in 1.6 seconds
+Bytes per second: sent 2107.0, received 4414.6
 debug1: Exit status 0
 ```
 
