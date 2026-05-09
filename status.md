@@ -1,6 +1,6 @@
-# Germany Server - Sat May  9 06:45:46 UTC 2026
+# Germany Server - Sat May  9 06:48:00 UTC 2026
 
-## Command: ls -la
+## Command: pwd && ls -la && ls -la /root/spoof-tunnel
 ```
 OpenSSH_9.6p1 Ubuntu-3ubuntu13.15, OpenSSL 3.0.13 30 Jan 2024
 debug1: Reading configuration data /etc/ssh/ssh_config
@@ -80,10 +80,9 @@ debug1: pledge: network
 debug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0
 debug1: Sending environment.
 debug1: channel 0: setting env LANG = "C.UTF-8"
-debug1: Sending command: ls -la
+debug1: Sending command: pwd && ls -la && ls -la /root/spoof-tunnel
 debug1: pledge: fork
-debug1: client_input_channel_req: channel 0 rtype exit-status reply 0
-debug1: client_input_channel_req: channel 0 rtype eow@openssh.com reply 0
+/root
 total 60
 drwx------  6 root root 4096 May  9 06:35 .
 drwxr-xr-x 20 root root 4096 May  8 15:33 ..
@@ -101,9 +100,17 @@ drwx------  3 root root 4096 Aug 14  2025 snap
 drwxr-xr-x  3 root root 4096 May  9 06:45 spoof-tunnel
 drwx------  2 root root 4096 Aug 14  2025 .ssh
 -rw-r--r--  1 root root  165 May  9 04:55 .wget-hsts
+total 14516
+drwxr-xr-x 3 root root     4096 May  9 06:45 .
+drwx------ 6 root root     4096 May  9 06:35 ..
+drwxr-xr-x 8 root root     4096 May  9 06:45 .git
+-rw-r--r-- 1 root root  4049984 May  9 06:45 spoofTunnel
+-rw-r--r-- 1 root root 10799966 May  9 06:45 spoofTunnel.b64
+debug1: client_input_channel_req: channel 0 rtype exit-status reply 0
+debug1: client_input_channel_req: channel 0 rtype eow@openssh.com reply 0
 debug1: channel 0: free: client-session, nchannels 1
-Transferred: sent 3208, received 4372 bytes, in 0.5 seconds
-Bytes per second: sent 6460.5, received 8804.6
+Transferred: sent 3248, received 4700 bytes, in 1.2 seconds
+Bytes per second: sent 2793.3, received 4042.0
 debug1: Exit status 0
 ```
 
