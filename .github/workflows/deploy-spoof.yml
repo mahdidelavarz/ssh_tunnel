@@ -1,0 +1,23 @@
+name: Deploy Spoof Tunnel
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Deploy to Germany
+        uses: appleboy/ssh-action@v1
+        with:
+          host: 46.225.109.36
+          username: root
+          password: ${{ secrets.GERMAN_PASS }}
+          port: 22
+          script: |
+            cd /root
+            echo "Checking if file exists..."
+            ls -la spoofTunnel 2>/dev/null || echo "File not found"
