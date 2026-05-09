@@ -1,6 +1,6 @@
-# Germany Server - Sat May  9 07:51:37 UTC 2026
+# Germany Server - Sat May  9 07:52:29 UTC 2026
 
-## Command: echo 5.160.0.0/16 > /root/germany-spoof-test.txt # This is an example for an Iran IP range
+## Command: # On Germany Server sudo /root/spoof-tunnel/spoof receive-test \   --receiver-ip 0.0.0.0 \   --protocol icmp \   --output /root/germany-working-ips.txt
 ```
 OpenSSH_9.6p1 Ubuntu-3ubuntu13.15, OpenSSL 3.0.13 30 Jan 2024
 debug1: Reading configuration data /etc/ssh/ssh_config
@@ -80,13 +80,13 @@ debug1: pledge: network
 debug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0
 debug1: Sending environment.
 debug1: channel 0: setting env LANG = "C.UTF-8"
-debug1: Sending command: echo 5.160.0.0/16 > /root/germany-spoof-test.txt # This is an example for an Iran IP range
+debug1: Sending command: # On Germany Server sudo /root/spoof-tunnel/spoof receive-test \\   --receiver-ip 0.0.0.0 \\   --protocol icmp \\   --output /root/germany-working-ips.txt
 debug1: pledge: fork
 debug1: client_input_channel_req: channel 0 rtype exit-status reply 0
 debug1: client_input_channel_req: channel 0 rtype eow@openssh.com reply 0
 debug1: channel 0: free: client-session, nchannels 1
-Transferred: sent 3296, received 3528 bytes, in 1.1 seconds
-Bytes per second: sent 3013.8, received 3225.9
+Transferred: sent 3352, received 3528 bytes, in 0.5 seconds
+Bytes per second: sent 6808.0, received 7165.5
 debug1: Exit status 0
 ```
 
