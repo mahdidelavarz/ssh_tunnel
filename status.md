@@ -1,6 +1,6 @@
-# Germany Server - Sat May  9 13:35:13 UTC 2026
+# Germany Server - Sat May  9 13:43:00 UTC 2026
 
-## Command: ls -la ./temp_repo
+## Command: cd ./temp_repo && ls -la
 ```
 OpenSSH_9.6p1 Ubuntu-3ubuntu13.15, OpenSSL 3.0.13 30 Jan 2024
 debug1: Reading configuration data /etc/ssh/ssh_config
@@ -80,10 +80,8 @@ debug1: pledge: network
 debug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0
 debug1: Sending environment.
 debug1: channel 0: setting env LANG = "C.UTF-8"
-debug1: Sending command: ls -la ./temp_repo
+debug1: Sending command: cd ./temp_repo && ls -la
 debug1: pledge: fork
-debug1: client_input_channel_req: channel 0 rtype exit-status reply 0
-debug1: client_input_channel_req: channel 0 rtype eow@openssh.com reply 0
 total 56620
 drwxr-xr-x 3 root root     4096 May  9 13:31 .
 drwx------ 7 root root     4096 May  9 13:31 ..
@@ -91,9 +89,11 @@ drwxr-xr-x 8 root root     4096 May  9 13:31 .git
 -rw-r--r-- 1 root root 43107103 May  9 13:31 mhrv-rs-android-universal-v1.9.18.apk
 -rw-r--r-- 1 root root  4049984 May  9 13:31 spoofTunnel
 -rw-r--r-- 1 root root 10799966 May  9 13:31 spoofTunnel.b64
+debug1: client_input_channel_req: channel 0 rtype exit-status reply 0
+debug1: client_input_channel_req: channel 0 rtype eow@openssh.com reply 0
 debug1: channel 0: free: client-session, nchannels 1
-Transferred: sent 3224, received 3908 bytes, in 0.9 seconds
-Bytes per second: sent 3437.0, received 4166.2
+Transferred: sent 3224, received 3908 bytes, in 1.0 seconds
+Bytes per second: sent 3344.8, received 4054.4
 debug1: Exit status 0
 ```
 
