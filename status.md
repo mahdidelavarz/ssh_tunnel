@@ -1,6 +1,6 @@
-# Germany Server - Sat May  9 12:48:50 UTC 2026
+# Germany Server - Sat May  9 12:49:58 UTC 2026
 
-## Command: base64 /root/mhrv > /root/mhrv.txt
+## Command: wc -c /root/mhrv.txt
 ```
 OpenSSH_9.6p1 Ubuntu-3ubuntu13.15, OpenSSL 3.0.13 30 Jan 2024
 debug1: Reading configuration data /etc/ssh/ssh_config
@@ -80,13 +80,14 @@ debug1: pledge: network
 debug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0
 debug1: Sending environment.
 debug1: channel 0: setting env LANG = "C.UTF-8"
-debug1: Sending command: base64 /root/mhrv > /root/mhrv.txt
+debug1: Sending command: wc -c /root/mhrv.txt
 debug1: pledge: fork
 debug1: client_input_channel_req: channel 0 rtype exit-status reply 0
 debug1: client_input_channel_req: channel 0 rtype eow@openssh.com reply 0
+13 /root/mhrv.txt
 debug1: channel 0: free: client-session, nchannels 1
-Transferred: sent 3240, received 3528 bytes, in 0.9 seconds
-Bytes per second: sent 3418.0, received 3721.9
+Transferred: sent 3224, received 3564 bytes, in 1.2 seconds
+Bytes per second: sent 2800.6, received 3095.9
 debug1: Exit status 0
 ```
 
