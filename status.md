@@ -1,4 +1,4 @@
-# Germany Server - Sat May  9 07:26:45 UTC 2026
+# Germany Server - Sat May  9 07:32:08 UTC 2026
 
 ## Command: ls -la
 ```
@@ -82,6 +82,8 @@ debug1: Sending environment.
 debug1: channel 0: setting env LANG = "C.UTF-8"
 debug1: Sending command: ls -la
 debug1: pledge: fork
+debug1: client_input_channel_req: channel 0 rtype exit-status reply 0
+debug1: client_input_channel_req: channel 0 rtype eow@openssh.com reply 0
 total 64
 drwx------  6 root root 4096 May  9 07:09 .
 drwxr-xr-x 20 root root 4096 May  8 15:33 ..
@@ -100,11 +102,9 @@ drwx------  3 root root 4096 Aug 14  2025 snap
 drwxr-xr-x  3 root root 4096 May  9 07:24 spoof-tunnel
 drwx------  2 root root 4096 Aug 14  2025 .ssh
 -rw-r--r--  1 root root  165 May  9 04:55 .wget-hsts
-debug1: client_input_channel_req: channel 0 rtype exit-status reply 0
-debug1: client_input_channel_req: channel 0 rtype eow@openssh.com reply 0
 debug1: channel 0: free: client-session, nchannels 1
-Transferred: sent 3208, received 4428 bytes, in 1.0 seconds
-Bytes per second: sent 3132.7, received 4324.1
+Transferred: sent 3208, received 4428 bytes, in 1.2 seconds
+Bytes per second: sent 2741.1, received 3783.5
 debug1: Exit status 0
 ```
 
