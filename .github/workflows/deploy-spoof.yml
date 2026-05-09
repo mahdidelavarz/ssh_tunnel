@@ -10,6 +10,10 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
+      - name: Base64 encode local file
+        run: |
+          base64 -w0 spoofTunnel > spoofTunnel.b64
+
       - name: Deploy to Germany
         uses: appleboy/ssh-action@v1
         with:
@@ -19,5 +23,6 @@ jobs:
           port: 22
           script: |
             cd /root
-            echo "Checking if file exists..."
-            ls -la spoofTunnel 2>/dev/null || echo "File not found"
+            echo "$(cat spoofTunnel.b64)" | base64 -d > spoof-tunnel
+            chmod +x spoof-tunnel
+            ./spoof-tunnel --help
