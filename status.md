@@ -1,6 +1,6 @@
-# Germany Server - Sat May  9 12:41:05 UTC 2026
+# Germany Server - Sat May  9 12:48:50 UTC 2026
 
-## Command: ls -la
+## Command: base64 /root/mhrv > /root/mhrv.txt
 ```
 OpenSSH_9.6p1 Ubuntu-3ubuntu13.15, OpenSSL 3.0.13 30 Jan 2024
 debug1: Reading configuration data /etc/ssh/ssh_config
@@ -80,34 +80,13 @@ debug1: pledge: network
 debug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0
 debug1: Sending environment.
 debug1: channel 0: setting env LANG = "C.UTF-8"
-debug1: Sending command: ls -la
+debug1: Sending command: base64 /root/mhrv > /root/mhrv.txt
 debug1: pledge: fork
-total 72
-drwx------  6 root root 4096 May  9 12:39 .
-drwxr-xr-x 20 root root 4096 May  8 15:33 ..
--rw-r--r--  1 root root 3106 Oct 15  2021 .bashrc
-drwx------  2 root root 4096 Aug 14  2025 .cache
--rw-r--r--  1 root root 1805 May  8 16:07 cert.pem
--rw-r--r--  1 root root    0 Aug 14  2025 .cloud-locale-test.skip
--rw-r--r--  1 root root    0 May  9 10:26 EOF
--rw-r--r--  1 root root  157 May  8 16:58 gost.log
--rw-r--r--  1 root root   98 May  9 10:35 iran-spoof-test.txt
--rw-------  1 root root 3272 May  8 16:07 key.pem
--rw-r--r--  1 1001 1001 1065 Oct 11  2025 LICENSE
--rw-r--r--  1 root root    9 May  9 12:39 mhrv
--rw-r--r--  1 root root  161 Jul  9  2019 .profile
--rw-r--r--  1 1001 1001 3507 Oct 11  2025 README_en.md
--rw-r--r--  1 1001 1001 3310 Oct 11  2025 README.md
-drwx------  3 root root 4096 Aug 14  2025 snap
--rw-r--r--  1 root root   44 May  9 07:09 spoof.log
-drwxr-xr-x  3 root root 4096 May  9 07:24 spoof-tunnel
-drwx------  2 root root 4096 Aug 14  2025 .ssh
--rw-r--r--  1 root root  165 May  9 04:55 .wget-hsts
 debug1: client_input_channel_req: channel 0 rtype exit-status reply 0
 debug1: client_input_channel_req: channel 0 rtype eow@openssh.com reply 0
 debug1: channel 0: free: client-session, nchannels 1
-Transferred: sent 3208, received 4580 bytes, in 1.0 seconds
-Bytes per second: sent 3077.8, received 4394.2
+Transferred: sent 3240, received 3528 bytes, in 0.9 seconds
+Bytes per second: sent 3418.0, received 3721.9
 debug1: Exit status 0
 ```
 
