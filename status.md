@@ -1,6 +1,6 @@
-# Germany Server - Sat May  9 06:49:44 UTC 2026
+# Germany Server - Sat May  9 07:04:49 UTC 2026
 
-## Command: chmod +x /root/spoof-tunnel/spoofTunnel && /root/spoof-tunnel/spoofTunnel --help
+## Command: /root/spoof-tunnel/spoofTunnel remote --help
 ```
 OpenSSH_9.6p1 Ubuntu-3ubuntu13.15, OpenSSL 3.0.13 30 Jan 2024
 debug1: Reading configuration data /etc/ssh/ssh_config
@@ -80,31 +80,31 @@ debug1: pledge: network
 debug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0
 debug1: Sending environment.
 debug1: channel 0: setting env LANG = "C.UTF-8"
-debug1: Sending command: chmod +x /root/spoof-tunnel/spoofTunnel && /root/spoof-tunnel/spoofTunnel --help
+debug1: Sending command: /root/spoof-tunnel/spoofTunnel remote --help
 debug1: pledge: fork
-Spoofed UDP relay tunnel (Rust transport)
-
-Usage:
-  spoof [command]
-
-Available Commands:
-  completion  Generate the autocompletion script for the specified shell
-  help        Help about any command
-  local       Run in local (client) mode: UDP → spoofed packets to server
-  remote      Run in remote (server) mode: spoofed packets → UDP forward
-  run         Run from config file (mode determined by config)
-  tester      Run spoof IP tester (sender or receiver)
-
-Flags:
-  -h, --help      help for spoof
-  -v, --version   version for spoof
-
-Use "spoof [command] --help" for more information about a command.
 debug1: client_input_channel_req: channel 0 rtype exit-status reply 0
 debug1: client_input_channel_req: channel 0 rtype eow@openssh.com reply 0
+Run in remote (server) mode: spoofed packets → UDP forward
+
+Usage:
+  spoof remote [flags]
+
+Flags:
+      --client-ip string        client's real IP
+      --client-port int         client's recv port (default 5001)
+  -c, --config string           path to config file (CLI flags override)
+  -f, --forward string          UDP address to forward to (default "127.0.0.1:51820")
+  -h, --help                    help for remote
+  -l, --listen-port int         port for incoming packets (default 8090)
+      --peer-spoof-ip string    expected source IP of client packets
+      --recv-transport string   recv transport: tcp, udp, icmp, icmpv6 (default: tcp)
+      --send-transport string   send transport: tcp, udp, icmp, icmpv6 (default: udp)
+  -s, --spoof-ip string         spoofed source IP (single)
+      --spoof-ip-file string    file with spoof IPs (one per line, round-robin)
+      --spoof-port int          spoofed source port (default 8090)
 debug1: channel 0: free: client-session, nchannels 1
-Transferred: sent 3280, received 4164 bytes, in 1.0 seconds
-Bytes per second: sent 3381.8, received 4293.3
+Transferred: sent 3248, received 4492 bytes, in 1.0 seconds
+Bytes per second: sent 3207.5, received 4435.9
 debug1: Exit status 0
 ```
 
