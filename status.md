@@ -1,6 +1,6 @@
-# Germany Server - Sat May  9 10:28:46 UTC 2026
+# Germany Server - Sat May  9 10:29:37 UTC 2026
 
-## Command: echo 5.9.0.0/24 | sudo tee /root/iran-spoof-test.txt
+## Command: echo 138.68.0.0/24 | sudo tee -a /root/iran-spoof-test.txt
 ```
 OpenSSH_9.6p1 Ubuntu-3ubuntu13.15, OpenSSL 3.0.13 30 Jan 2024
 debug1: Reading configuration data /etc/ssh/ssh_config
@@ -80,14 +80,14 @@ debug1: pledge: network
 debug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0
 debug1: Sending environment.
 debug1: channel 0: setting env LANG = "C.UTF-8"
-debug1: Sending command: echo 5.9.0.0/24 | sudo tee /root/iran-spoof-test.txt
+debug1: Sending command: echo 138.68.0.0/24 | sudo tee -a /root/iran-spoof-test.txt
 debug1: pledge: fork
-5.9.0.0/24
+138.68.0.0/24
 debug1: client_input_channel_req: channel 0 rtype exit-status reply 0
 debug1: client_input_channel_req: channel 0 rtype eow@openssh.com reply 0
 debug1: channel 0: free: client-session, nchannels 1
-Transferred: sent 3256, received 3564 bytes, in 1.0 seconds
-Bytes per second: sent 3105.2, received 3398.9
+Transferred: sent 3264, received 3564 bytes, in 0.5 seconds
+Bytes per second: sent 7026.9, received 7672.8
 debug1: Exit status 0
 ```
 
