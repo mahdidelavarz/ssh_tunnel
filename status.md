@@ -1,6 +1,6 @@
-# Germany Server - Fri May  8 17:29:06 UTC 2026
+# Germany Server - Sat May  9 04:12:49 UTC 2026
 
-## Command: which iptables
+## Command: iptables -t nat -L
 ```
 OpenSSH_9.6p1 Ubuntu-3ubuntu13.15, OpenSSL 3.0.13 30 Jan 2024
 debug1: Reading configuration data /etc/ssh/ssh_config
@@ -80,14 +80,24 @@ debug1: pledge: network
 debug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0
 debug1: Sending environment.
 debug1: channel 0: setting env LANG = "C.UTF-8"
-debug1: Sending command: which iptables
+debug1: Sending command: iptables -t nat -L
 debug1: pledge: fork
 debug1: client_input_channel_req: channel 0 rtype exit-status reply 0
 debug1: client_input_channel_req: channel 0 rtype eow@openssh.com reply 0
-/usr/sbin/iptables
+Chain PREROUTING (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain POSTROUTING (policy ACCEPT)
+target     prot opt source               destination         
 debug1: channel 0: free: client-session, nchannels 1
-Transferred: sent 3216, received 3572 bytes, in 1.1 seconds
-Bytes per second: sent 2935.5, received 3260.5
+Transferred: sent 3224, received 3924 bytes, in 0.9 seconds
+Bytes per second: sent 3644.4, received 4435.7
 debug1: Exit status 0
 ```
 
