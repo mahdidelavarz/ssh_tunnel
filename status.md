@@ -1,6 +1,6 @@
-# Germany Server - Sat May  9 10:35:58 UTC 2026
+# Germany Server - Sat May  9 10:36:42 UTC 2026
 
-## Command: sudo cat /root/iran-spoof-test.txt
+## Command: sudo /root/spoof-tunnel/spoof tester --mode receiver --protocol icmp --src-list /root/iran-spoof-test.txt --timeout 30
 ```
 OpenSSH_9.6p1 Ubuntu-3ubuntu13.15, OpenSSL 3.0.13 30 Jan 2024
 debug1: Reading configuration data /etc/ssh/ssh_config
@@ -80,20 +80,17 @@ debug1: pledge: network
 debug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0
 debug1: Sending environment.
 debug1: channel 0: setting env LANG = "C.UTF-8"
-debug1: Sending command: sudo cat /root/iran-spoof-test.txt
+debug1: Sending command: sudo /root/spoof-tunnel/spoof tester --mode receiver --protocol icmp --src-list /root/iran-spoof-test.txt --timeout 30
 debug1: pledge: fork
-5.9.0.0/24
-138.68.0.0/24
-51.75.0.0/24
-217.219.0.0/24
-185.143.0.0/24
-178.22.0.0/24
-130.185.74.0/24
+2026/05/09 10:36:44 [tester] loaded 1792 source IPs from /root/iran-spoof-test.txt
+2026/05/09 10:36:44 [tester] mode=receiver protocol=icmp packet_count=10 max_loss=20.0%
+2026/05/09 10:36:44 [tester-receiver] protocol=icmp sources=1792 packet_count=10 max_loss=20.0% timeout=30s
+2026/05/09 10:37:15 [tester-receiver] done -- 0/1792 IPs passed (loss <= 20.0%)
+2026/05/09 10:37:15 [tester] 0/1792 IPs passed
 debug1: client_input_channel_req: channel 0 rtype exit-status reply 0
-debug1: client_input_channel_req: channel 0 rtype eow@openssh.com reply 0
 debug1: channel 0: free: client-session, nchannels 1
-Transferred: sent 3240, received 3644 bytes, in 0.5 seconds
-Bytes per second: sent 6507.0, received 7318.4
+Transferred: sent 3320, received 4004 bytes, in 31.8 seconds
+Bytes per second: sent 104.4, received 125.9
 debug1: Exit status 0
 ```
 
