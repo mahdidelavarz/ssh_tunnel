@@ -41,9 +41,9 @@ jobs:
           
           # Use -e for sshpass, -tt for TTY if long-running
           if [ "${{ github.event.inputs.is_long_running }}" = "true" ]; then
-            sshpass -e ssh -tt $SSH_OPTS root@46.225.109.36 "${{ github.event.inputs.command }}" >> status.md 2>&1
+            sshpass -e ssh -tt $SSH_OPTS root@46.224.130.78 "${{ github.event.inputs.command }}" >> status.md 2>&1
           else
-            sshpass -e ssh $SSH_OPTS root@46.225.109.36 "${{ github.event.inputs.command }}" >> status.md 2>&1
+            sshpass -e ssh $SSH_OPTS root@46.224.130.78 "${{ github.event.inputs.command }}" >> status.md 2>&1
           fi
           
           echo '```' >> status.md
