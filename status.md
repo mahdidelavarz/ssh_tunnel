@@ -1,9 +1,97 @@
-# Germany Server - Mon May 11 14:30:47 UTC 2026
+# Germany Server - Mon May 11 14:32:17 UTC 2026
 
-## Command: `cat /etc/apt/sources.list.d/docker.list`
+## Command: `sudo apt update && sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin`
 ```
 Warning: Permanently added '46.224.130.78' (ED25519) to the list of known hosts.
-deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu jammy stable
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Get:1 https://download.docker.com/linux/ubuntu jammy InRelease [48.5 kB]
+Hit:2 https://mirror.hetzner.com/ubuntu/packages jammy InRelease
+Hit:3 https://mirror.hetzner.com/ubuntu/packages jammy-updates InRelease
+Hit:4 https://mirror.hetzner.com/ubuntu/packages jammy-backports InRelease
+Hit:5 https://mirror.hetzner.com/ubuntu/security jammy-security InRelease
+Get:6 https://download.docker.com/linux/ubuntu jammy/stable amd64 Packages [77.0 kB]
+Fetched 125 kB in 1s (134 kB/s)
+Reading package lists...
+Building dependency tree...
+Reading state information...
+3 packages can be upgraded. Run 'apt list --upgradable' to see them.
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  docker-ce-rootless-extras libslirp0 pigz slirp4netns
+Suggested packages:
+  cgroupfs-mount | cgroup-lite docker-model-plugin
+The following NEW packages will be installed:
+  containerd.io docker-buildx-plugin docker-ce docker-ce-cli
+  docker-ce-rootless-extras docker-compose-plugin libslirp0 pigz slirp4netns
+0 upgraded, 9 newly installed, 0 to remove and 3 not upgraded.
+Need to get 94.9 MB of archives.
+After this operation, 365 MB of additional disk space will be used.
+Get:1 https://download.docker.com/linux/ubuntu jammy/stable amd64 containerd.io amd64 2.2.3-1~ubuntu.22.04~jammy [23.6 MB]
+Get:2 https://mirror.hetzner.com/ubuntu/packages jammy/universe amd64 pigz amd64 2.6-1 [63.6 kB]
+Get:3 https://mirror.hetzner.com/ubuntu/packages jammy/main amd64 libslirp0 amd64 4.6.1-1build1 [61.5 kB]
+Get:4 https://mirror.hetzner.com/ubuntu/packages jammy/universe amd64 slirp4netns amd64 1.0.1-2 [28.2 kB]
+Get:5 https://download.docker.com/linux/ubuntu jammy/stable amd64 docker-ce-cli amd64 5:29.4.3-1~ubuntu.22.04~jammy [17.0 MB]
+Get:6 https://download.docker.com/linux/ubuntu jammy/stable amd64 docker-ce amd64 5:29.4.3-1~ubuntu.22.04~jammy [22.8 MB]
+Get:7 https://download.docker.com/linux/ubuntu jammy/stable amd64 docker-buildx-plugin amd64 0.33.0-1~ubuntu.22.04~jammy [16.9 MB]
+Get:8 https://download.docker.com/linux/ubuntu jammy/stable amd64 docker-ce-rootless-extras amd64 5:29.4.3-1~ubuntu.22.04~jammy [6,559 kB]
+Get:9 https://download.docker.com/linux/ubuntu jammy/stable amd64 docker-compose-plugin amd64 5.1.3-1~ubuntu.22.04~jammy [8,023 kB]
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+dpkg-preconfigure: unable to re-open stdin: 
+Fetched 94.9 MB in 1s (69.8 MB/s)
+Selecting previously unselected package containerd.io.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 34849 files and directories currently installed.)
+Preparing to unpack .../0-containerd.io_2.2.3-1~ubuntu.22.04~jammy_amd64.deb ...
+Unpacking containerd.io (2.2.3-1~ubuntu.22.04~jammy) ...
+Selecting previously unselected package docker-ce-cli.
+Preparing to unpack .../1-docker-ce-cli_5%3a29.4.3-1~ubuntu.22.04~jammy_amd64.deb ...
+Unpacking docker-ce-cli (5:29.4.3-1~ubuntu.22.04~jammy) ...
+Selecting previously unselected package docker-ce.
+Preparing to unpack .../2-docker-ce_5%3a29.4.3-1~ubuntu.22.04~jammy_amd64.deb ...
+Unpacking docker-ce (5:29.4.3-1~ubuntu.22.04~jammy) ...
+Selecting previously unselected package pigz.
+Preparing to unpack .../3-pigz_2.6-1_amd64.deb ...
+Unpacking pigz (2.6-1) ...
+Selecting previously unselected package docker-buildx-plugin.
+Preparing to unpack .../4-docker-buildx-plugin_0.33.0-1~ubuntu.22.04~jammy_amd64.deb ...
+Unpacking docker-buildx-plugin (0.33.0-1~ubuntu.22.04~jammy) ...
+Selecting previously unselected package docker-ce-rootless-extras.
+Preparing to unpack .../5-docker-ce-rootless-extras_5%3a29.4.3-1~ubuntu.22.04~jammy_amd64.deb ...
+Unpacking docker-ce-rootless-extras (5:29.4.3-1~ubuntu.22.04~jammy) ...
+Selecting previously unselected package docker-compose-plugin.
+Preparing to unpack .../6-docker-compose-plugin_5.1.3-1~ubuntu.22.04~jammy_amd64.deb ...
+Unpacking docker-compose-plugin (5.1.3-1~ubuntu.22.04~jammy) ...
+Selecting previously unselected package libslirp0:amd64.
+Preparing to unpack .../7-libslirp0_4.6.1-1build1_amd64.deb ...
+Unpacking libslirp0:amd64 (4.6.1-1build1) ...
+Selecting previously unselected package slirp4netns.
+Preparing to unpack .../8-slirp4netns_1.0.1-2_amd64.deb ...
+Unpacking slirp4netns (1.0.1-2) ...
+Setting up docker-buildx-plugin (0.33.0-1~ubuntu.22.04~jammy) ...
+Setting up containerd.io (2.2.3-1~ubuntu.22.04~jammy) ...
+Created symlink /etc/systemd/system/multi-user.target.wants/containerd.service → /lib/systemd/system/containerd.service.
+Setting up docker-compose-plugin (5.1.3-1~ubuntu.22.04~jammy) ...
+Setting up docker-ce-cli (5:29.4.3-1~ubuntu.22.04~jammy) ...
+Setting up libslirp0:amd64 (4.6.1-1build1) ...
+Setting up pigz (2.6-1) ...
+Setting up docker-ce-rootless-extras (5:29.4.3-1~ubuntu.22.04~jammy) ...
+Setting up slirp4netns (1.0.1-2) ...
+Setting up docker-ce (5:29.4.3-1~ubuntu.22.04~jammy) ...
+Created symlink /etc/systemd/system/multi-user.target.wants/docker.service → /lib/systemd/system/docker.service.
+Created symlink /etc/systemd/system/sockets.target.wants/docker.socket → /lib/systemd/system/docker.socket.
+Processing triggers for man-db (2.10.2-1) ...
+Processing triggers for libc-bin (2.35-0ubuntu3.13) ...
 ```
 
 ## Exit Code: 0
