@@ -1,16 +1,11 @@
-# Germany Server - Thu May 14 11:11:48 UTC 2026
+# Germany Server - Thu May 14 11:13:12 UTC 2026
 
-## Command: `sudo apt upgrade`
+## Command: `curl -O https://raw.githubusercontent.com/angristan/openvpn-install/master/openvpn-install.sh`
 ```
 Warning: Permanently added '78.47.70.169' (ED25519) to the list of known hosts.
-
-WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
-
-Reading package lists...
-Building dependency tree...
-Reading state information...
-Calculating upgrade...
-0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 18  144k   18 27622    0     0  91555      0  0:00:01 --:--:--  0:00:01 91463100  144k  100  144k    0     0   434k      0 --:--:-- --:--:-- --:--:--  434k
 ```
 
 ## Exit Code: 0
