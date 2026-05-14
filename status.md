@@ -1,4 +1,4 @@
-# Germany Server - Thu May 14 15:25:28 UTC 2026
+# Germany Server - Thu May 14 15:29:50 UTC 2026
 
 ## Command: `cd /root && sudo ./openvpn-install.sh uninstall --force && rm -f openvpn-install.sh && curl -O https://raw.githubusercontent.com/angristan/openvpn-install/master/openvpn-install.sh && chmod +x openvpn-install.sh && sudo ./openvpn-install.sh install --client vpnclient --port 443 --protocol tcp && cat /root/vpnclient.ovpn`
 ```
