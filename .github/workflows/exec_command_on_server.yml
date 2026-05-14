@@ -1,0 +1,65 @@
+name: Execute on Remote Server
+
+on:
+  workflow_dispatch:
+    inputs:
+      command:
+        description: 'Command to run on remote server'
+        required: true
+        default: 'docker --version'
+        type: string
+      is_long_running:
+        description: 'Check if command is a long installation'
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  execute:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    timeout-minutes: 30  # Adjusted; can increase for Docker install
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Install sshpass
+        run: sudo apt-get update && sudo apt-get install -y sshpass
+
+      - name: Run command on remote server
+        run: |
+          export SSHPASS="${{ secrets.SERVER_PASS }}"
+          
+          # Get server details from secrets
+          SERVER_IP="${{ secrets.SERVER_IP }}"
+          SERVER_PORT="${{ secrets.SERVER_PORT }}"
+          SERVER_USER="${{ secrets.SERVER_USER }}"
+          
+          # For long commands, use -tt to force a TTY and prevent hangs
+          SSH_OPTS="-o StrictHostKeyChecking=no -o ServerAliveInterval=60 -o ServerAliveCountMax=5"
+          
+          echo "# Remote Server - $(date)" > status.md
+          echo "" >> status.md
+          echo "## Server: \`$SERVER_USER@$SERVER_IP:$SERVER_PORT\`" >> status.md
+          echo "## Command: \`${{ github.event.inputs.command }}\`" >> status.md
+          echo '```' >> status.md
+          
+          # Use -e for sshpass, -tt for TTY if long-running
+          if [ "${{ github.event.inputs.is_long_running }}" = "true" ]; then
+            sshpass -e ssh -tt -p "$SERVER_PORT" $SSH_OPTS $SERVER_USER@$SERVER_IP "${{ github.event.inputs.command }}" >> status.md 2>&1
+          else
+            sshpass -e ssh -p "$SERVER_PORT" $SSH_OPTS $SERVER_USER@$SERVER_IP "${{ github.event.inputs.command }}" >> status.md 2>&1
+          fi
+          
+          echo '```' >> status.md
+          echo "" >> status.md
+          echo "## Exit Code: $?" >> status.md
+
+      - name: Commit and push result
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add status.md
+          git commit -m "Execute: ${{ github.event.inputs.command }}" || echo "No changes"
+          git push
