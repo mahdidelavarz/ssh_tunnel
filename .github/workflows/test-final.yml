@@ -12,7 +12,7 @@ jobs:
         with:
           host: 178.105.67.21
           username: root
-          password: "WeJVRwwiNics9AVtcweP"
+          password: WeJVRwwiNics9AVtcweP
           port: 22
           script: |
             echo "Connected!"
