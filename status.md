@@ -1,86 +1,8 @@
-# Germany Server - Thu May 14 12:18:43 UTC 2026
+# Germany Server - Thu May 14 12:22:19 UTC 2026
 
-## Command: `cd /root && rm -f openvpn-install.sh && curl -O https://raw.githubusercontent.com/angristan/openvpn-install/master/openvpn-install.sh && chmod +x openvpn-install.sh && sudo ./openvpn-install.sh uninstall --force 2>/dev/null; sudo ./openvpn-install.sh install --client vpnclient && echo ===START_CONFIG=== && cat /root/vpnclient.ovpn && echo ===END_CONFIG=== && echo SUCCESS`
+## Command: `cat /root/vpnclient.ovpn`
 ```
 Warning: Permanently added '78.47.70.169' (ED25519) to the list of known hosts.
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  5  144k    5  7736    0     0  29669      0  0:00:05 --:--:--  0:00:05 29639100  144k  100  144k    0     0   479k      0 --:--:-- --:--:-- --:--:--  480k
-[INFO] === OpenVPN Non-Interactive Install ===
-[INFO] Running in non-interactive mode with the following settings:
-[INFO]   ENDPOINT=78.47.70.169
-[INFO]   ENDPOINT_TYPE=4
-[INFO]   CLIENT_IPV4=y
-[INFO]   CLIENT_IPV6=n
-[INFO]   VPN_SUBNET_IPV4=10.8.0.0
-[INFO]   VPN_SUBNET_IPV6=fd42:42:42:42::
-[INFO]   PORT=1194
-[INFO]   PROTOCOL=udp
-[INFO]   DNS=cloudflare
-[INFO]   MULTI_CLIENT=n
-[INFO]   AUTH_MODE=pki
-[INFO]   CLIENT=vpnclient
-[INFO]   CLIENT_CERT_DURATION_DAYS=3650
-[INFO]   SERVER_CERT_DURATION_DAYS=3650
-[INFO] Setting up official OpenVPN repository...
-> apt-get update
-> apt-get install -y ca-certificates curl
-> mkdir -p /etc/apt/keyrings
-> curl -fsSL https://swupdate.openvpn.net/repos/repo-public.gpg -o /etc/apt/keyrings/openvpn-repo-public.asc
-[INFO] Updating package lists with new repository...
-> apt-get update
-[INFO] OpenVPN official repository configured
-[INFO] Installing OpenVPN and dependencies...
-> apt-get install -y openvpn iptables openssl curl ca-certificates tar dnsutils socat
-[INFO] Data Channel Offload (DCO) is not available (requires OpenVPN 2.6+ and kernel support)
-> mkdir -p /etc/openvpn/server
-> curl -fL --retry 5 -o /tmp/easy-rsa.93Vp6G.tgz https://github.com/OpenVPN/easy-rsa/releases/download/v3.2.6/EasyRSA-3.2.6.tgz
-[INFO] Verifying Easy-RSA checksum...
-> mkdir -p /etc/openvpn/server/easy-rsa
-> tar xzf /tmp/easy-rsa.93Vp6G.tgz --strip-components=1 --no-same-owner --directory /etc/openvpn/server/easy-rsa
-> rm -f /tmp/easy-rsa.93Vp6G.tgz
-[INFO] Initializing PKI...
-> ./easyrsa init-pki
-[INFO] Building CA...
-> ./easyrsa --batch --req-cn=cn_4MIZWKmlCcedJURv build-ca nopass
-[INFO] Building server certificate...
-> ./easyrsa --batch build-server-full server_4GSnyTLD2nqP04vs nopass
-> ./easyrsa gen-crl
-[INFO] Generating TLS key...
-> openvpn --genkey tls-crypt-v2-server /etc/openvpn/server/tls-crypt-v2.key
-[INFO] Copying certificates...
-> cp pki/ca.crt pki/private/ca.key pki/issued/server_4GSnyTLD2nqP04vs.crt pki/private/server_4GSnyTLD2nqP04vs.key /etc/openvpn/server/easy-rsa/pki/crl.pem /etc/openvpn/server
-> chmod 644 /etc/openvpn/server/crl.pem
-[INFO] Generating server configuration...
-> mkdir -p /etc/openvpn/server/ccd
-> mkdir -p /var/log/openvpn
-[INFO] Enabling IP forwarding...
-> mkdir -p /etc/sysctl.d
-> sysctl --system
-[INFO] Configuring OpenVPN service...
-> cp /usr/lib/systemd/system/openvpn-server@.service /etc/systemd/system/openvpn-server@.service
-> sed -i s|LimitNPROC|#LimitNPROC| /etc/systemd/system/openvpn-server@.service
-> sed -i /\[Service\]/a RuntimeDirectory=openvpn-server /etc/systemd/system/openvpn-server@.service
-> systemctl daemon-reload
-> systemctl enable openvpn-server@server
-> systemctl restart openvpn-server@server
-[INFO] Configuring firewall rules...
-> mkdir -p /etc/iptables
-> chmod +x /etc/iptables/add-openvpn-rules.sh
-> chmod +x /etc/iptables/rm-openvpn-rules.sh
-> systemctl daemon-reload
-> systemctl enable iptables-openvpn
-> systemctl start iptables-openvpn
-[INFO] Creating client template...
-[INFO] Generating first client certificate...
-[INFO] Generating client certificate...
-> ./easyrsa --batch build-client-full vpnclient nopass
-[OK] Client vpnclient added and is valid for 3650 days.
-> cp /etc/openvpn/server/client-template.txt /root/vpnclient.ovpn
-[OK] The configuration file has been written to /root/vpnclient.ovpn.
-[INFO] Download the .ovpn file and import it in your OpenVPN client.
-[OK] If you want to add more clients, you simply need to run this script another time!
-===START_CONFIG===
 client
 proto udp
 explicit-exit-notify
@@ -156,8 +78,6 @@ WIx0Ea0l4DDP28uNL4c9h71hTuBB2olEG0smSlJhi2Cl9HC3Jp/JsZT1/Vi/3IR8
 qTfPpKN1tdy2PT6a1dyciAeU3i/8UBM0JgEr
 -----END OpenVPN tls-crypt-v2 client key-----
 </tls-crypt-v2>
-===END_CONFIG===
-SUCCESS
 ```
 
 ## Exit Code: 0
