@@ -1,19 +1,13 @@
-# Germany Server - Thu May 14 12:11:17 UTC 2026
+# Germany Server - Thu May 14 12:16:43 UTC 2026
 
-## Command: `ls -la`
+## Command: `cd /root && rm -f openvpn-install.sh && curl -O https://raw.githubusercontent.com/angristan/openvpn-install/master/openvpn-install.sh && chmod +x openvpn-install.sh && sudo ./openvpn-install.sh uninstall --force 2>/dev/null; sudo ./openvpn-install.sh install --client vpnclient --no-client-password && echo ===START_CONFIG=== && cat /root/vpnclient.ovpn && echo ===END_CONFIG=== && echo SUCCESS`
 ```
 Warning: Permanently added '78.47.70.169' (ED25519) to the list of known hosts.
-total 180
-drwx------  5 root root   4096 May 14 11:41 .
-drwxr-xr-x 20 root root   4096 May 14 09:19 ..
--rw-r--r--  1 root root   3106 Oct 15  2021 .bashrc
-drwx------  2 root root   4096 May 12 13:32 .cache
--rw-r--r--  1 root root      0 May 12 13:35 .cloud-locale-test.skip
--rw-r--r--  1 root root   3037 May 14 12:08 openvpn-install.log
--rwxr-xr-x  1 root root 148444 May 14 11:41 openvpn-install.sh
--rw-r--r--  1 root root    161 Jul  9  2019 .profile
-drwx------  3 root root   4096 May 12 13:32 snap
-drwx------  2 root root   4096 May 12 13:32 .ssh
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  144k  100  144k    0     0   786k      0 --:--:-- --:--:-- --:--:--  783k
+[ERROR] Unknown option: --no-client-password. See 'openvpn-install install --help' for usage.
+        Check the log file for details: openvpn-install.log
 ```
 
-## Exit Code: 0
+## Exit Code: 1
