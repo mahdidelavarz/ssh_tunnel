@@ -10,9 +10,9 @@ jobs:
       - name: SSH Test
         uses: appleboy/ssh-action@v1
         with:
-          host: 178.105.67.21
+          host: 78.47.70.169
           username: root
-          password: WeJVRwwiNics9AVtcweP
+          password: "WeJVRwwiNics9AVtcweP"
           port: 22
           script: |
             echo "Connected!"
