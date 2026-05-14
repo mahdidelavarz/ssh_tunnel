@@ -1,8 +1,9 @@
-# Germany Server - Thu May 14 11:35:29 UTC 2026
+# Germany Server - Thu May 14 12:10:36 UTC 2026
 
-## Command: `sudo rm -rf ~/easy-rsa 2>/dev/null`
+## Command: `sudo /tmp/install-vpn.sh`
 ```
 Warning: Permanently added '78.47.70.169' (ED25519) to the list of known hosts.
+sudo: /tmp/install-vpn.sh: command not found
 ```
 
-## Exit Code: 0
+## Exit Code: 1
