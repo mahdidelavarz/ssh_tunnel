@@ -6,7 +6,7 @@ on:
       command:
         description: 'Command to run on Germany server'
         required: true
-        default: 'docker --version'
+        default: 'pwd && ls -la'
         type: string
       is_long_running:
         description: 'Check if command is a long installation'
@@ -42,10 +42,10 @@ jobs:
           set +e  # Don't exit on error
           
           if [ "${{ github.event.inputs.is_long_running }}" = "true" ]; then
-            sshpass -e ssh -tt $SSH_OPTS root@78.47.70.169 "${{ github.event.inputs.command }}" 2>&1 | tee -a status.md
+            sshpass -e ssh -tt $SSH_OPTS root@49.12.68.126 "${{ github.event.inputs.command }}" 2>&1 | tee -a status.md
             EXIT_CODE=${PIPESTATUS[0]}
           else
-            sshpass -e ssh $SSH_OPTS root@78.47.70.169 "${{ github.event.inputs.command }}" 2>&1 | tee -a status.md
+            sshpass -e ssh $SSH_OPTS root@49.12.68.126 "${{ github.event.inputs.command }}" 2>&1 | tee -a status.md
             EXIT_CODE=${PIPESTATUS[0]}
           fi
           
