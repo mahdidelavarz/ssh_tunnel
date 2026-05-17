@@ -1,17 +1,11 @@
-# Germany Server - Sun May 17 04:23:15 UTC 2026
+# Germany Server - Sun May 17 04:31:44 UTC 2026
 
-## Command: `pwd && ls -la`
+## Command: `curl -O https://raw.githubusercontent.com/angristan/openvpn-install/master/openvpn-install.sh`
 ```
 Warning: Permanently added '49.12.68.126' (ED25519) to the list of known hosts.
-/root
-total 24
-drwx------  4 root root 4096 May 12 13:33 .
-drwxr-xr-x 23 root root 4096 May 17 04:13 ..
--rw-r--r--  1 root root 3106 Apr 22  2024 .bashrc
-drwx------  2 root root 4096 May 12 13:30 .cache
--rw-r--r--  1 root root    0 May 12 13:31 .cloud-locale-test.skip
--rw-r--r--  1 root root  161 Apr 22  2024 .profile
-drwx------  2 root root 4096 May 12 13:29 .ssh
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  144k  100  144k    0     0   578k      0 --:--:-- --:--:-- --:--:--  579k
 ```
 
 ## Exit Code: 0
